@@ -1,0 +1,18 @@
+/* Root variables */
+
+:root {
+  --primary-color: #24292e;
+  --secondary-color: #ffffff;
+  --accent-color: #0366d6;
+
+  --base-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --base-font-size: 16px;
+}
+
+/* Alignmnent */
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
