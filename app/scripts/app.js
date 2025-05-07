@@ -1,54 +1,65 @@
-// "use strict";
+// const car = {
+//   name: "BMW",
+//   model: "X7",
+//   "29": 29,
+//   "Year of creation": 2025,
+//   getInfo: function() {
+//     return `${this.name} created in ${this.factory.country}`;
+//   },
+//   factory: {
+//     country: "Germany",
+//     region: "Berlin",
+//     address: "Ritterstrasse, 24"
+//   }
+// }
 
-console.log("Hello world from app.js");
+// const car2 = car;
 
-// Task 1
-// var
-var name = "John";
-var age = 30;
-name = "Peter";
+// car.name = 'Peugeot';
+// car.model = '407';
 
-// const
-const NAME_1= "John";
-const AGE_1 = 30;
+// const car3 = Object.assign({}, car);
 
-// let
-// let name_2 = "John";
-// let age_2 = 30;
-// let login;
-// let password = undefined;
-// let email = null;
-// let isSuccess = false;
-// let hasArrow = true;
+// const car4 = {...car};
 
-const person = {
-  name: "John",
-  _lastName: "Doe",
-  age: 30,
-  foot: "43",
-  isFemale: false
-};
+// const {getInfo, ...tempCarData} = car;
 
-person._lastName = 'DDDDD';
+// const car5copy = structuredClone(tempCarData);
 
-console.log(typeof person.name);
+// car5copy.factory.country = "China";
+// car5copy.name = "Geely"
+// car5copy.getInfo = getInfo;
 
-// Строковое преобразование
-let userInfo = "Hello " + person.name + " " + person._lastName + ", age: " + person.age + ", is female - " + person.isFemale;
-console.log(userInfo)
-console.log(typeof userInfo)
+// car3.name = 'Renault'
 
-let userNumInfo = person.age + Number(person.foot);
-console.log(userNumInfo);
-console.log(typeof userNumInfo);
+// console.log(`Car1: ${car.getInfo()}`)
+// console.log(`Car3: ${car3.getInfo()}`)
+// console.log(`Car5: ${car5copy.getInfo()}`)
 
-// let
-let name_2 = "John";
-let age_2 = 30;
-let login;
-let password = undefined;
-let email = null;
-let isSuccess = false;
-let hasArrow = true;
+// // let a = 15;
+// // let b = 10;
 
-console.log("43" > 42)
+// // [a, b] = [b, a]; 
+
+
+
+// // console.log(car5copy);
+
+// const carValues = Object.values(car);
+// const carKeys = Object.keys(car)
+
+let username = 'Ulad', password = 'Qwerty';
+
+const creds = { username, password }
+
+console.log("🚀 ~ creds:", creds)
+
+let score = "12:45";
+let splittedScore = score.split(":")
+let sumScore = +splittedScore[0] + +splittedScore[1];
+
+
+console.log("🚀 ~ sumScore:", sumScore)
+console.log("🚀 ~ splittedScore:", splittedScore)
+
+
