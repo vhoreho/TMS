@@ -1,65 +1,86 @@
-// const car = {
-//   name: "BMW",
-//   model: "X7",
-//   "29": 29,
-//   "Year of creation": 2025,
-//   getInfo: function() {
-//     return `${this.name} created in ${this.factory.country}`;
-//   },
-//   factory: {
-//     country: "Germany",
-//     region: "Berlin",
-//     address: "Ritterstrasse, 24"
-//   }
-// }
+const cars = [{
+  name: "Belgee",
+  model: "X50",
+  yearOfCreate: 2025,
+  value: 1.5
+},{
+  name: "Belgee",
+  model: "X70",
+  yearOfCreate: 2025,
+  value: 2
+},{
+  name: "Belgee",
+  model: "S50",
+  yearOfCreate: 2025,
+  value: 3
+}];
 
-// const car2 = car;
+const geely = [{
+  name: "Geely",
+  model: "Atlas",
+  yearOfCreate: 2021,
+  value: 3
+},{
+  name: "Geely",
+  model: "Atlas Pro",
+  yearOfCreate: 2024,
+  value: 3
+},{
+  name: "Geely",
+  model: "Emgrand",
+  yearOfCreate: 2022,
+  value: 3
+}]
 
-// car.name = 'Peugeot';
-// car.model = '407';
+const belgeeX50 = {...cars[1]}
+const belgee = [...cars];
 
-// const car3 = Object.assign({}, car);
+const unionCars = cars.concat(geely);
+const unionCarsAlternative = [...cars, ...geely];
 
-// const car4 = {...car};
+const models = []
 
-// const {getInfo, ...tempCarData} = car;
+for (const car of unionCarsAlternative) {
+  models.push(car.model);
+}
 
-// const car5copy = structuredClone(tempCarData);
+// console.log("🚀 ~ models:", models);
+// const lastElementOfArray = models.pop();
+// const sc7Geely = models.unshift('SC7');
+// const sc7Sliced = models.shift();
+// console.log("🚀 ~ sc7Sliced:", sc7Sliced)
+// console.log("🚀 ~ lastElementOfArray:", lastElementOfArray);
+// console.log("🚀 ~ models:", models);
 
-// car5copy.factory.country = "China";
-// car5copy.name = "Geely"
-// car5copy.getInfo = getInfo;
+const reversedModelsByCycle = [];
 
-// car3.name = 'Renault'
+for (let i = models.length - 1; i >= 0; i--) {
+  reversedModelsByCycle.push(models[i]);
+}
 
-// console.log(`Car1: ${car.getInfo()}`)
-// console.log(`Car3: ${car3.getInfo()}`)
-// console.log(`Car5: ${car5copy.getInfo()}`)
+let atlas = "Atlas ";
+atlas = atlas.trim()
 
-// // let a = 15;
-// // let b = 10;
+console.log("🚀 ~ models:", models)
+const hasAtlasValue = models.includes(atlas);
+console.log("🚀 ~ hasAtlasValue:", hasAtlasValue);
 
-// // [a, b] = [b, a]; 
+const array = Array(10).fill("🦁");
+const arrayFlat = [[1,2], [3,4], [5,6], [7,8]]
+console.log("🚀 ~ array:", arrayFlat.flat())
 
+const joinedArray = models.join(' 🦁 ');
+// console.log("🚀 ~ joinedArray:", joinedArray)
+// console.log("🚀 ~ models:", models)
+// console.log("🚀 ~ reversedModelsByCycle:", reversedModelsByCycle);
+// console.log("🚀 ~ reversedModels:", reversedModels);
+// console.log("🚀 ~ models:", models)
+// const slicedModels = models.slice(2,4);
+// const splicedModels = models.splice(2,4);
+// console.log("🚀 ~ splicedModels:", splicedModels)
+// console.log("🚀 ~ slicedModels:", slicedModels)
+// console.log("🚀 ~ models:", models)
 
+cars[1].value = 10;
 
-// // console.log(car5copy);
-
-// const carValues = Object.values(car);
-// const carKeys = Object.keys(car)
-
-let username = 'Ulad', password = 'Qwerty';
-
-const creds = { username, password }
-
-console.log("🚀 ~ creds:", creds)
-
-let score = "12:45";
-let splittedScore = score.split(":")
-let sumScore = +splittedScore[0] + +splittedScore[1];
-
-
-console.log("🚀 ~ sumScore:", sumScore)
-console.log("🚀 ~ splittedScore:", splittedScore)
-
-
+// console.log(belgee[1]);
