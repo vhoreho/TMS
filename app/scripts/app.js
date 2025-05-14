@@ -1,86 +1,140 @@
-const cars = [{
-  name: "Belgee",
-  model: "X50",
-  yearOfCreate: 2025,
-  value: 1.5
-},{
-  name: "Belgee",
-  model: "X70",
-  yearOfCreate: 2025,
-  value: 2
-},{
-  name: "Belgee",
-  model: "S50",
-  yearOfCreate: 2025,
-  value: 3
-}];
+// function calcSum () {
+//   console.log("Function declaration", this)
+// }
 
-const geely = [{
-  name: "Geely",
-  model: "Atlas",
-  yearOfCreate: 2021,
-  value: 3
-},{
-  name: "Geely",
-  model: "Atlas Pro",
-  yearOfCreate: 2024,
-  value: 3
-},{
-  name: "Geely",
-  model: "Emgrand",
-  yearOfCreate: 2022,
-  value: 3
-}]
+// const calcSumExpression = function (a,b) {
+//   console.log("Function expression", this);
 
-const belgeeX50 = {...cars[1]}
-const belgee = [...cars];
+//   if (typeof a === 'number' && typeof b === 'number') {
+//     return a + b;
+//   }
+// };
 
-const unionCars = cars.concat(geely);
-const unionCarsAlternative = [...cars, ...geely];
+// const calcSumArrow = (a, b) => {
+//   console.log("Arrow function", this);
 
-const models = []
+//   return typeof a === 'number' && typeof b === 'number' ? a + b: null
+// };
 
-for (const car of unionCarsAlternative) {
-  models.push(car.model);
+// const staffSalaries = {
+//   peter: 3000,
+//   max:6000, 
+//   carl: 4000,
+//   calcAverageSalaries: function () {
+//     console.log("calcAverageSalaries", this)
+//   },
+//   calcAverageSalariesArrow: () => {
+//     console.log("calcAverageSalariesArrow", this)
+//   }
+// }
+
+// // staffSalaries.calcAverageSalaries();
+// // staffSalaries.calcAverageSalariesArrow();
+
+// // calcSum();
+// // calcSumExpression(3,5)
+// // calcSumArrow(3,5);
+
+// const processData = (data, callback, callbackAlternative) => {
+//   console.log('Обработка данных:', data);
+
+//   data?.password === 'qwerty'? callback(data) : callbackAlternative()
+// }
+
+// const callbackFunction = (data) => console.log("Данные успешно обработаны", data);
+
+// const callbackAlternativeFunction = () => console.log('Пароль не правильный');
+
+// const credentials = {username: "John", password: "qwerty"};
+
+// // processData(credentials, callbackFunction, callbackAlternativeFunction);
+
+// // Foreach
+// const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// const persons = [
+//   {
+//     name: "Peter",
+//     surname: "Parker"
+//   },
+//   {
+//     name: "Carl",
+//     surname: "Does"
+//   },{
+//     name: "asdas",
+//     surname: "sadasd"
+//   },{
+//     name: "asdasa",
+//     surname: "Daaaaoe"
+//   },{
+//     name: "asdasd",
+//     surname: "Dasdasdoe"
+//   },
+// ]
+
+// let arrayMultiple = [];
+
+// const multipleNumber = (value, result) => result.push(value * 2);
+
+// array.forEach((value) => multipleNumber(value, arrayMultiple));
+
+// const mappedNumbers = array.map((value) => value * 2);
+
+// const sum = array.reduce((accum, value) => accum + value, 0);
+
+// const filteredNumbers = array.filter((value) => value % 2 === 0);
+
+// const foundNumber = array.find((value) => value === 1);
+
+// const foundPeterParker = persons.find((value)=> value.name === "Peterasda");
+
+// console.log("🚀 ~ foundPeterParker:", foundPeterParker)
+// console.log("🚀 ~ foundNumber:", foundNumber)
+
+// console.log("🚀 ~ filteredNumbers:", filteredNumbers)
+
+// const oddNumbers = [];
+
+// for(const number of array) {
+//   if(number % 2 === 0) {
+//     oddNumbers.push(number);
+//   }
+// }
+
+// console.log("🚀 ~ oddNumbers:", oddNumbers)
+// // console.log("🚀 ~ sum:", sum)
+// // console.log("🚀 ~ mappedNumbers:", mappedNumbers)
+// // console.log("🚀 ~ arrayMultiple:", arrayMultiple)
+
+// const greet = (name) => `Hello ${name}`
+
+// console.log((name => `Hello ${name}`)('Bob'))
+
+// function Car(name, model) {
+//   this.name = name,
+//   this.model = model
+// }
+
+// const Geely = new Car('Geely', "Atlas"), 
+//       BMW = new Car("BMW", "X7"),
+//       Peugeot = new Car("Peugeot", "3008");
+
+// console.log(Geely,BMW, Peugeot);
+
+
+function changeUserName (newUserName) {
+  this.userName = newUserName
 }
 
-// console.log("🚀 ~ models:", models);
-// const lastElementOfArray = models.pop();
-// const sc7Geely = models.unshift('SC7');
-// const sc7Sliced = models.shift();
-// console.log("🚀 ~ sc7Sliced:", sc7Sliced)
-// console.log("🚀 ~ lastElementOfArray:", lastElementOfArray);
-// console.log("🚀 ~ models:", models);
-
-const reversedModelsByCycle = [];
-
-for (let i = models.length - 1; i >= 0; i--) {
-  reversedModelsByCycle.push(models[i]);
+const user = {
+  userName: ''
 }
 
-let atlas = "Atlas ";
-atlas = atlas.trim()
+const bindedChangeUserName = changeUserName.bind(user);
+bindedChangeUserName('Ulad')
 
-console.log("🚀 ~ models:", models)
-const hasAtlasValue = models.includes(atlas);
-console.log("🚀 ~ hasAtlasValue:", hasAtlasValue);
+changeUserName.call(user, 'Peter');
+changeUserName.apply(user, ['Carl']);
+// changeUserName.call(user, 'Peter');
 
-const array = Array(10).fill("🦁");
-const arrayFlat = [[1,2], [3,4], [5,6], [7,8]]
-console.log("🚀 ~ array:", arrayFlat.flat())
-
-const joinedArray = models.join(' 🦁 ');
-// console.log("🚀 ~ joinedArray:", joinedArray)
-// console.log("🚀 ~ models:", models)
-// console.log("🚀 ~ reversedModelsByCycle:", reversedModelsByCycle);
-// console.log("🚀 ~ reversedModels:", reversedModels);
-// console.log("🚀 ~ models:", models)
-// const slicedModels = models.slice(2,4);
-// const splicedModels = models.splice(2,4);
-// console.log("🚀 ~ splicedModels:", splicedModels)
-// console.log("🚀 ~ slicedModels:", slicedModels)
-// console.log("🚀 ~ models:", models)
-
-cars[1].value = 10;
-
-// console.log(belgee[1]);
+console.log(user.userName)
