@@ -1,58 +1,81 @@
-// const randomValue = 21;
+// const links = document.getElementsByClassName("link");
+// const linksStatic = document.querySelectorAll('[data-link="true"]');
+// const nav = document.getElementById('nav');
+// const isHomePage = location.pathname === "/index.html";
 
-// function getInfo() {
-//   // var randomValue;
-//   // var randomValue2;
-//   // var randomValue3;
-//   console.log(typeof randomValue);
-//   var randomValue = 'Some string';
-//   var randomValue2 = 'Another string';
-//   var randomValue3 = 'Yet another string';
-// }
+// const navigationListItem = document.createElement('li');
+// const linkToPricePage = document.createElement('a');
+// linkToPricePage.innerText = 'Pricing';
+// linkToPricePage.setAttribute('class', 'link');
+// linkToPricePage.setAttribute('href', isHomePage ? "./app/pages/pricing.html" :"./pricing.html");
+// navigationListItem.append(linkToPricePage);
 
-// function getInfo2() {
-//   console.log(name);
-//   console.log(age);
-//   var name = 'John';
-//   let age = 30;
-// }
+// nav.append(navigationListItem)
+
+// const links2 = document.querySelectorAll(".link");
+// const hrefs = []
+
+// links2.forEach((value) => hrefs.push(value.getAttribute("href")))
+// console.log("🚀 ~ hrefs:", hrefs)
+
+// hrefLinks.forEach((item) => {
+//   const href = item.getAttribute("href");
+//   const preparedHref = location.pathname === "/" ? "/" : location.pathname.split('/').pop();
+//   const isActive = href === `./${preparedHref}`;
+//   console.log("🚀 ~ hrefLinks.forEach ~ preparedHref:", preparedHref);
+//   console.log("🚀 ~ hrefLinks.forEach ~ location.pathname:", location.pathname);
+//   console.log("🚀 ~ hrefLinks.forEach ~ href:", href);
+//   console.log("🚀 ~ hrefLinks.forEach ~ isActive:", isActive);
+  
+//   if (isActive) {
+//     item.style.color = "#e1e4e8";
+//   }
+// })
 
 
-function getInfo3() {
-  "use strict";
-  var age = 30;
-  console.log(age);
-}
+const linkHrefs = ['/', './about.html', './contants.html', './pricing.html', './tasks.html'];
+const nav = document.getElementById('nav');
 
-// getInfo3();
-// getInfo();
+linkHrefs.forEach(link => {
+  const splittedLinkName = link.split(".");
+  const navigationListItem = document.createElement('li');
+  const linkToPricePage = document.createElement('a');
+  linkToPricePage.style.textTransform = 'capitalize';
+  linkToPricePage.innerText = link === '/'? "Home": splittedLinkName[splittedLinkName.length - 2].slice(1); 
+  linkToPricePage.setAttribute('class', 'link');
+  linkToPricePage.setAttribute('href', link === '/' ? link : location.pathname !== "/" ? link : `./app/pages${link.slice(1)}`);
+  navigationListItem.append(linkToPricePage);
+  nav.append(navigationListItem)
+})
 
-// console.log(typeof typeof 1)
+// Task2, Task3
+const h1Title = document.querySelector('h1');
+h1Title.innerText = 'Title level 1';
+console.log("🚀 ~ h1Title.innerText:", h1Title.innerText)
+// const h1Title = document.querySelector('h1');
+const pWithClass = document.querySelector("p.text");
+console.log("🚀 ~ pWithClass:", pWithClass.innerText)
+const itemWithId = document.querySelector("li#listItem3");
+itemWithId.innerHTML = "<strong>List item 3</strong>";
+const itemsLists = document.querySelectorAll("li.list-item")
+console.log("🚀 ~ itemsLists:", itemsLists)
 
-// console.log(eval("10 * 10 + 5"));
+//Task 4
+const firstParagraph = document.querySelector('p a');
+firstParagraph.setAttribute("target", "_blank");
+firstParagraph.setAttribute('rel', 'noopener');
+firstParagraph.removeAttribute('role');
+firstParagraph.setAttribute("href", "https://getbootstrap.com/")
 
-// const shape = {
-//   radius: 10,
-//   diameter() {
-//     return this.radius * 2;
-//   },
-//   perimeter: () => 2 * Math.PI * this.radius
-// }
+console.log("🚀 ~ firstParagraph:", firstParagraph)
 
-// console.log(shape.diameter());
-// console.log(shape.perimeter());
+// Task 5
+const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png';
+const image = document.createElement('img');
+image.style.width = '300px';
+image.style.height = '150px';
+image.setAttribute("src", imageUrl);
+h1Title.append(image);
 
-// const a = {};
-// const b = { key: "b" };
-// const c = { asdasdas: "c" };
 
-// a[b] = 123;
-// console.log("🚀 ~ a:", a)
-// a[c] = 456;
-// console.log("🚀 ~ a:", a)
-// console.log(a[b]);
 
-// console.log([].push(1, 2, 3));
-// console.log(num);
-
-// const num = 1;
